@@ -35,6 +35,14 @@ redis = Redisent.new(sentinels, master, options)
 If the sentinels can't be reached, or if there is no master available,
 you will get the exception `Redis::CannotConnectError`.
 
+## Failover
+
+In case of a failover, it is important that the clients don't engage
+with the failed master even if it's restored. For that reason, clients
+must connect to the Redis sentinels in order to get the address of the
+promoted master, and the way to accomplish that is by using
+Redisent.new each time a reconnection is needed.
+
 ## Installation
 
 You can install it using rubygems:
