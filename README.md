@@ -1,5 +1,5 @@
-redisent
-====
+Redisent
+========
 
 Sentinel aware Redis client.
 
@@ -19,21 +19,19 @@ connecting to the master.
 
 ```ruby
 # List of sentinels.
-sentinels = ["redis://localhost:27379/",
-             "redis://localhost:27380/",
-             "redis://localhost:27381/"]
+sentinels = ["localhost:27379",
+             "localhost:27380",
+             "localhost:27381"]
 
 # Master server name as defined in sentinel.conf.
 master = "server-1"
 
-# Additional options for the master server.
-options = { :timeout => 5, :password => "abcd" }
-
-redis = Redisent.new(sentinels, master, options)
+redis = Redisent.new(hosts: sentinels, name: master)
 ```
 
-If the sentinels can't be reached, or if there is no master available,
-you will get the exception `Redis::CannotConnectError`.
+If the sentinels can't be reached you will get the exception
+`Redisent::UnreachableHosts`. If the master name is unknown, you
+will get the exception `Redisent::UnknownMaster`.
 
 ## Failover
 
