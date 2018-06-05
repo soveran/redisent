@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name              = "redisent"
-  s.version           = "0.1.0.alpha"
+  s.version           = "0.1.0"
   s.summary           = "Sentinel aware Redis client."
   s.description       = "Redisent is a wrapper for the Redis client that fetches configuration details from sentinels."
   s.authors           = ["Michel Martens"]
