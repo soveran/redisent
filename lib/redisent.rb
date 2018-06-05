@@ -58,12 +58,12 @@ class Redisent
         if RuntimeError === sentinels
           unknown.push(host)
         else
-          healthy.push(host)
-
           sentinels.each do |sentinel|
             info = Hash[*sentinel]
-
-            healthy.push(sprintf("%s:%s", info["ip"], info["port"]))
+            host_details = sprintf("%s:%s", info["ip"], info["port"])
+            unless healthy.include?(host_details)
+              healthy.push(host_details)
+            end
           end
         end
 
