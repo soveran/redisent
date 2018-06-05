@@ -75,6 +75,7 @@ class Redisent
     end
 
     if healthy.any?
+      healthy.uniq!
       @hosts.replace(healthy)
       @prime.configure(master)
       return true
