@@ -9,6 +9,7 @@ class Redisent
     Errno::EINVAL,
     Errno::ETIMEDOUT,
     Errno::EADDRNOTAVAIL,
+    Errno::EHOSTUNREACH,
   ]
 
   attr_reader :hosts
