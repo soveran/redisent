@@ -8,6 +8,7 @@ class Redisent
     Errno::ECONNREFUSED,
     Errno::EINVAL,
     Errno::ETIMEDOUT,
+    Errno::EADDRNOTAVAIL,
   ]
 
   attr_reader :hosts
