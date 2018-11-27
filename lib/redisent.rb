@@ -7,6 +7,9 @@ class Redisent
   ECONN = [
     Errno::ECONNREFUSED,
     Errno::EINVAL,
+    Errno::ETIMEDOUT,
+    Errno::EADDRNOTAVAIL,
+    Errno::EHOSTUNREACH,
   ]
 
   attr_reader :hosts
